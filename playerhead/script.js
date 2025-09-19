@@ -1,6 +1,7 @@
 let displayName1 = document.getElementById("outputCommand1");
 let displayName2 = document.getElementById("outputCommand2");
 let displayName3 = document.getElementById("outputCommand3");
+let displayNameAPI = document.getElementById("outputCommandAPI");
 
 let generateButton = document.getElementById("generateButton");
 generateButton.addEventListener("click", () => {
@@ -12,6 +13,8 @@ generateButton.addEventListener("click", () => {
     displayName2.value = "/give @p minecraft:player_head{SkullOwner:\"" + mcid + "\"}";
 
     displayName3.value = "/give @p minecraft:player_head[minecraft:profile=\"" + mcid + "\"]";
+
+    displayNameAPI.value = "https://api.mojang.com/users/profiles/minecraft/" + mcid;
 });
 
 let copyButton1 = document.getElementById("copyButton1");
@@ -30,4 +33,15 @@ let copyButton3 = document.getElementById("copyButton3");
 copyButton3.addEventListener("click", () => {
     displayName3.select();
     document.execCommand("copy");
+});
+
+let copyButtonAPI = document.getElementById("copyButtonAPI");
+copyButtonAPI.addEventListener("click", () => {
+    displayNameAPI.select();
+    document.execCommand("copy");
+});
+
+let jumpButton = document.getElementById("jumpButtonAPI");
+jumpButton.addEventListener("click", () => {
+    window.open(displayNameAPI.value);
 });
